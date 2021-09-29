@@ -1,4 +1,5 @@
 package com.learning;
+import com.learning.test. *;
 abstract class human
 {
     public abstract void eat()   // abstract method must have abstrct class
@@ -20,9 +21,11 @@ class man extends human  // Concrete class
         System.out.println(i);
     }
 }
-public class AbstractDemo {
+public class AbstractDemo extends animal
+{
     public static void main(String[] args) {
         man obj=new man();
         man.data(9);
+
     }
 }
