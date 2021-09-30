@@ -28,7 +28,7 @@ public class LamdaThreadDemo {
         try {
             Thread.sleep(50);
         }
-        catch (Exception e)
+        catch (Exception ignored)
         {
 
         }
