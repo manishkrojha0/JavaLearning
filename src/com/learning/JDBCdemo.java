@@ -21,19 +21,16 @@ public class JDBCdemo {
         Connection con= DriverManager.getConnection(url,uname,pass);
         Statement st= con.createStatement();
         ResultSet rs= st.executeQuery(query);
-
+//        String update ="insert into persons values(34,'pandey','Raj','r-10','Rishikesh')";
+//        int count =st.executeUpdate(update);
+//        System.out.println(count+ "Rows affected");
         while(rs.next()) {
 
-//            int f=rs.getRow();
-//            System.out.println(f);
-            SQLXML f=rs.getSQLXML(1);
-//            System.out.println(SQLXML);
             int id = rs.getInt(1);
             String lastName= rs.getString(2);
             String firstName=rs.getString(3);
             String city= rs.getString(5);
             System.out.println(id+" "+lastName+" "+firstName+" "+city);
-
 
         }
         st.close();
