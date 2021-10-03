@@ -8,7 +8,6 @@ INDEX VERSION 1.131+C:\Users\manis\eclipse-workspace\.metadata\.plugins\org.ecli
 1402552443.index
 234532015.index
 248987657.index
-2203274743.index
 557532931.index
 3759661814.index
 4248922949.index

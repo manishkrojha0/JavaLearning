@@ -11,12 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class SqServlet extends HttpServlet
 {
-    public void doGet(HttpServletRequest req,HttpServletResponse res)
+    public void doPost(HttpServletRequest req,HttpServletResponse res)
     {
     	
 		try {
 			PrintWriter out = res.getWriter();
-			out.println("the product of two no is: ");
+			int k= (int) req.getAttribute("k");
+			k=k*k;
+			out.println("the sqaure of two no is: "+k);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

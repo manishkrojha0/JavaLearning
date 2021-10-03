@@ -3,12 +3,22 @@
 
 <servlet>
 	<servlet-name>abc</servlet-name>
-	<servlet-class>com.learningServlet.AddServlet</servlet-class>
+	<servlet-class>com.learningServlet.MultiServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
     <servlet-name>abc</servlet-name>
-    <url-pattern>/add</url-pattern>
+    <url-pattern>/multi</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>abcd</servlet-name>
+	<servlet-class>com.learningServlet.SqServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>abcd</servlet-name>
+    <url-pattern>/sq</url-pattern>
+</servlet-mapping>
+
 
 </web-app>
