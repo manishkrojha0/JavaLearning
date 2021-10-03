@@ -22,7 +22,6 @@ public class MultiServlet extends HttpServlet
 			int k= i+j;
 			HttpSession session = req.getSession();
 			session.setAttribute("k", k);
-			res.sendRedirect("sq");
 			//res.sendRedirect("sq?k="+k); //session management--url rewriting
 		//	req.setAttribute("k", k);
 //			out.println(k);

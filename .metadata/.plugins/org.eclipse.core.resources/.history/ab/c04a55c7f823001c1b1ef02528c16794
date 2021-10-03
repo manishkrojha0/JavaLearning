@@ -18,7 +18,7 @@ public class SqServlet extends HttpServlet
 		try {
 			PrintWriter out = res.getWriter();
 			HttpSession session = req.getSession();
-			int k= (int) session.getAttribute("k");
+			int k= Integer.parseInt(session.getAttribute("k"));
 //			int k= Integer.parseInt(req.getParameter("k")) ;
 			k=k*k;
 			
