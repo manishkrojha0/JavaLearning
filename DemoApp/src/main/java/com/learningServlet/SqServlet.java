@@ -4,6 +4,7 @@ package com.learningServlet;
 
 import java.io.PrintWriter;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -17,9 +18,15 @@ public class SqServlet extends HttpServlet
     	
 		try {
 			PrintWriter out = res.getWriter();
-			HttpSession session = req.getSession();
-			int k= (int) session.getAttribute("k");
-//			int k= Integer.parseInt(req.getParameter("k")) ;
+            int k=0;
+            req.getCookies();
+            Cookie cookies[]= req.getCookies();
+            for(Cookie c:cookies)
+            {
+            	if(c.getName().equals("k"))
+            		k=Integer.parseInt(c.getValue());
+            }
+            
 			k=k*k;
 			
 			out.println("the sqaure of two no is: "+k);

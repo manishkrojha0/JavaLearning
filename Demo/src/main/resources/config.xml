@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd
+
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+     <!--STEREOTYPE ANNOTATIONS-->
+
+    <context:component-scan base-package="StereoType" />
+
+    <util:list list-class="java.util.ArrayList" id="Address" >
+        <value>Renukoot</value>
+        <value>Lucknow</value>
+    </util:list>
+
+
+    <!--StandAlone Configuration-->
+    <util:list list-class="java.util.ArrayList" id="getfriends" >
+          <value>Manish </value>
+        <value>Jagriti</value>
+        <value>Piyush</value>
+    </util:list>
+
+    <util:map map-class="java.util.HashMap" id="fee">
+        <entry key="SpringFramework" value="8000" />
+        <entry key="Django" value="5000" />
+        <entry key="c++" value="2000" />
+    </util:map>
+
+    <util:properties id="server">
+        <prop key="jdbc">mysql:jdbc//localhost:8080//test</prop>
+        <prop key="hiberante">hib:fdnf//localhost:8080//test</prop>
+    </util:properties>
+
+
+
+
+    <context:annotation-config />
+
+    <bean class="test.B" id="bref">
+        <property name="y" value="10" />
+    </bean>
+    <bean class="test.A" id="aref1">
+        <property name="x" value="10" />
+        <property name="ob" ref="bref" />
+    </bean>
+    <bean class="test.A" id="aref2" p:x="12" p:ob-ref="bref" />
+    <bean class="test.A" id="aref3">
+        <constructor-arg value="13" />
+        <constructor-arg ref="bref" />
+    </bean>
+
+
+    <bean class="AnnotationsDemo.Example" id="ex">
+        <property name="subject" value="Maths" />
+    </bean>
+
+
+    <bean class="AutoWiring.Address" name="address">
+        <property name="street" value="temp street" />
+        <property name="city" value="delhi" />
+    </bean>
+
+    <bean class="AutoWiring.emp" name="e1" autowire="byName" />
+
+    <bean class="AutoWiring.annotation.B" name="b">
+        <property name="x" value="20" />
+    </bean>
+
+   <bean class="AutoWiring.annotation.A" name="a1" />
+
+    <bean class="StandAlone.Persons" id="p1">
+        <property name="friends" ref="getfriends" />
+        <property name="feeStructure" ref="fee" />
+        <property name="driver" ref="server" />
+    </bean>
+
+</beans>
