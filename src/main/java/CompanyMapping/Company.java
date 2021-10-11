@@ -1,9 +1,7 @@
 package CompanyMapping;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "Company")
@@ -33,6 +31,7 @@ public class Company {
 
     @Column(name = "Address")
     private String Address;
+
 
     public String getCname() {
         return cname;

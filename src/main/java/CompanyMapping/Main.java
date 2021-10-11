@@ -11,18 +11,18 @@ public class Main {
     public static void main(String[] args) {
         Employee employee=new Employee();
         Company company=new Company();
-        company.setCid(786);
+        company.setCid(789);
         company.setCname("Amazon");
         company.setAddress("Bangalore");
 
         ////////UPDATING AND CREATING TABLE
-        employee.setEid(786);
-        employee.setEname("Amit");
+        employee.setEid(789);
+        employee.setEname("Amita");
         employee.setAddress("Mumbai");
         employee.setSalary(60000);
         employee.setCompany(company);
 
-        Configuration con= new Configuration().configure("Hibernate.cfg.xml").addAnnotatedClass(Employee.class);
+        Configuration con= new Configuration().configure("Hibernate.cfg.xml").addAnnotatedClass(Company.class).addAnnotatedClass(Employee.class );
 
         ServiceRegistry registry=new StandardServiceRegistryBuilder().applySettings(con.getProperties()).build();
 
@@ -31,11 +31,15 @@ public class Main {
         Transaction tx= session.beginTransaction();
 
         // save method is for saving values table
-//        session.save(employee);
+        session.save(employee);
 
         /// fetching info from table
 //        employee = (Employee) session.get(Employee.class,780);
 //        System.out.println(employee);
+
+        /////// save company
+
+        session.save(company);
         tx.commit();
     }
 }

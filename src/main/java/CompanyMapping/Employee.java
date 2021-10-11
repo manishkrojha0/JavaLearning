@@ -1,7 +1,5 @@
 package CompanyMapping;
 
-import org.hibernate.annotations.Tables;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,24 +17,11 @@ public class Employee {
     private int salary;
 
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "eid=" + eid +
-                ", ename='" + ename + '\'' +
-                ", address='" + address + '\'' +
-                ", salary=" + salary +
-                ", company=" + company +
-                '}';
-    }
+
 
     @ManyToOne
     @JoinColumn(name = "company_cid")
     private Company company;
-    public Employee()
-    {
-        super();
-    }
 
     public Company getCompany() {
         return company;
@@ -45,6 +30,14 @@ public class Employee {
     public void setCompany(Company company) {
         this.company = company;
     }
+
+    public Employee()
+    {
+        super();
+    }
+
+
+
     public String getEname() {
         return ename;
     }
@@ -76,5 +69,6 @@ public class Employee {
     public void setEid(int eid) {
         this.eid = eid;
     }
+
 
 }
