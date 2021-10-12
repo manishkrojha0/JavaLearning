@@ -23,8 +23,7 @@ public class Customer {
     @OneToOne
     @JoinColumn(name = "rid")
     private Room room;
-    @OneToMany
-    @JoinColumn(name = "oder_id")
+    @OneToMany(mappedBy = "customer")
     private List<FoodOrder> foodOrders;
 
 

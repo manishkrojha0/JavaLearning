@@ -14,6 +14,7 @@ public class Employee {
     @Id
     private  int eid;
     private String ename;
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "cid")
     private Company company;
 }

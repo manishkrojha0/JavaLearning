@@ -14,23 +14,23 @@ public class Main {
 
         ///setting data in company
         Company company=new Company();
-        company.setCid(789);
-        company.setCname("Microsoft");
+        company.setCid(187);
+        company.setCname("Google");
 
         ////////Setting list of employees
         Employee employee=new Employee();
-        employee.setEid(780);
-        employee.setEname("Amit");
+        employee.setEid(998);
+        employee.setEname("Roshini");
         employee.setCompany(company);
 
         Employee employee1 = new Employee();
-        employee1.setEname("Manish");
-        employee1.setEid(879);
+        employee1.setEname("Aniket");
+        employee1.setEid(335);
         employee1.setCompany(company);
 
         Employee employee2 = new Employee();
-        employee.setEid(659);
-        employee2.setEname("Raman");
+        employee2.setEid(559);
+        employee2.setEname("Ritam");
         employee2.setCompany(company);
 
 
@@ -54,6 +54,9 @@ public class Main {
         Transaction tx= session.beginTransaction();
 
         session.save(company);
+        session.save(employee);
+        session.save(employee1);
+        session.save(employee2);
 
         tx.commit();
 

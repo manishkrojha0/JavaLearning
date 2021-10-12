@@ -19,5 +19,7 @@ public class FoodOrder {
     private String orderId;
     private String food;
     private int price;
-
+    @ManyToOne()
+    @JoinColumn(name = "cid")
+    Customer customer;
 }

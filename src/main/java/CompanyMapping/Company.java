@@ -3,6 +3,7 @@ package CompanyMapping;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,9 +15,8 @@ import java.util.List;
 @Table(name = "Company")
 public class Company {
     @Id
-   private int cid;
+    private int cid;
    private String cname;
-   @OneToMany
-   @JoinColumn(name = "company_id")
+   @OneToMany(mappedBy = "company")
    private List<Employee> employees;
 }
