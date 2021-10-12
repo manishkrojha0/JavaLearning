@@ -10,16 +10,16 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.*;
 public class Test {
     public static void main(String[] args) {
-        List<Customer> customers= new ArrayList<Customer>();
-        List<Room> rooms = new ArrayList<Room>();
+//        List<Customer> customers= new ArrayList<Customer>();
+//        List<Room> rooms = new ArrayList<Room>();
         Scanner sc= new Scanner(System.in);
         System.out.println("enter the no of customers entering the hotel");
         int n=sc.nextInt();
-        for(int i=0;i<n;i++)
-        {
+//        for(int i=0;i<n;i++)
+//        {
             Customer customer=new Customer();
             Room room = new Room();
-            System.out.println("enter the record of"+i+1+"customer");
+           // System.out.println("enter the record of"+i+1+"customer");
             System.out.println("enter the customer id");
             String customerId= sc.next();
             customer.setCid(customerId);
@@ -35,9 +35,9 @@ public class Test {
             System.out.println("enter the no of room");
             room.setNo_of_rooms(sc.next());
             customer.setRoom(room);
-            customers.add(customer);
-            rooms.add(room);
-        }
+//            customers.add(customer);
+//            rooms.add(room);
+      //  }
         System.out.println("enter the order details");
         FoodOrder foodOrder=new FoodOrder();
         System.out.println("enter the food order id");
@@ -50,7 +50,7 @@ public class Test {
         int price= sc.nextInt();
         foodOrder.setPrice(price);
 
-        foodOrder.setOrder_list(customers);
+//        foodOrder.setCustomer(customer);
 
         Configuration con = new Configuration().configure("Hibernate.cfg.xml").addAnnotatedClass(Customer.class).addAnnotatedClass(Room.class).addAnnotatedClass(FoodOrder.class);
 
@@ -63,8 +63,8 @@ public class Test {
 
         Transaction transaction= session.beginTransaction();
 
-        session.save(rooms);
-        session.save(customers);
+        session.save(room);
+        session.save(customer);
         session.save(foodOrder);
 
         transaction.commit();

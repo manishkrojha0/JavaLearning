@@ -19,8 +19,5 @@ public class FoodOrder {
     private String orderId;
     private String food;
     private int price;
-    @OneToMany
-    @JoinColumn(name = "cid")
 
-    private List<Customer> order_list;
 }

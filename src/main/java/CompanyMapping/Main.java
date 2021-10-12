@@ -6,21 +6,44 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Employee employee=new Employee();
+
+
+        ///setting data in company
         Company company=new Company();
         company.setCid(789);
-        company.setCname("Amazon");
-        company.setAddress("Bangalore");
+        company.setCname("Microsoft");
 
-        ////////UPDATING AND CREATING TABLE
-        employee.setEid(789);
-        employee.setEname("Amita");
-        employee.setAddress("Mumbai");
-        employee.setSalary(60000);
+        ////////Setting list of employees
+        Employee employee=new Employee();
+        employee.setEid(780);
+        employee.setEname("Amit");
         employee.setCompany(company);
+
+        Employee employee1 = new Employee();
+        employee1.setEname("Manish");
+        employee1.setEid(879);
+        employee1.setCompany(company);
+
+        Employee employee2 = new Employee();
+        employee.setEid(659);
+        employee2.setEname("Raman");
+        employee2.setCompany(company);
+
+
+
+        List<Employee> employees=new ArrayList<Employee>();
+
+        employees.add(employee);
+        employees.add(employee1);
+        employees.add(employee2);
+
+        company.setEmployees(employees);
+
+
 
         Configuration con= new Configuration().configure("Hibernate.cfg.xml").addAnnotatedClass(Company.class).addAnnotatedClass(Employee.class );
 
@@ -30,16 +53,11 @@ public class Main {
         Session session= sf.openSession();
         Transaction tx= session.beginTransaction();
 
-        // save method is for saving values table
-        session.save(employee);
-
-        /// fetching info from table
-//        employee = (Employee) session.get(Employee.class,780);
-//        System.out.println(employee);
-
-        /////// save company
-
         session.save(company);
+
         tx.commit();
+
+        session.close();
+        sf.close();
     }
 }

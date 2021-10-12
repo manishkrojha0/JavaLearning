@@ -6,25 +6,45 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Room room=new Room();
         Customer customer=new Customer();
         FoodOrder foodOrder=new FoodOrder();
 
-        room.setRoomid(600);
-        room.setNo_of_rooms("3bhk");
+        room.setRoomid(601);
+        room.setNo_of_rooms("4bhk");
 
-        customer.setCid("151");
-        customer.setCname("Ritu");
+        customer.setCid("152");
+        customer.setCname("Ritesh");
         customer.setAddress("Delhi");
         customer.setRoom(room);
 
-        foodOrder.setOrderId("104");
-        foodOrder.setFood("Sahi Panner");
-        foodOrder.setPrice(500);
-        foodOrder.getOrder_list().add(customer);
+        ////first order
+
+        foodOrder.setOrderId("105");
+        foodOrder.setFood("Kadhai Panner");
+        foodOrder.setPrice(600);
+//        foodOrder.setCustomer(customer);
+
+        /// Second Order
+
+        FoodOrder foodOrder1=new FoodOrder();
+        foodOrder1.setOrderId("106");
+        foodOrder1.setFood("Chapati");
+        foodOrder1.setPrice(600);
+//        foodOrder1.setCustomer(customer);
+
+        List<FoodOrder> foodOrders=new ArrayList<FoodOrder>();
+
+        foodOrders.add(foodOrder);
+        foodOrders.add(foodOrder1);
+
+        ////  Adding order to customer
+
+        customer.setFoodOrders(foodOrders);
+
 
         Configuration con = new Configuration().configure("Hibernate.cfg.xml").addAnnotatedClass(Room.class).addAnnotatedClass(Customer.class).addAnnotatedClass(FoodOrder.class);
 
@@ -41,6 +61,9 @@ public class Main {
         session.save(foodOrder);
 
         transaction.commit();
+
+        session.close();
+        sf.close();
     }
 
 
