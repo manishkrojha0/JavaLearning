@@ -14,5 +14,7 @@
         <property name="hibernate.connection.characterEncoding" >utf8</property>
         <property name="hibernate.connection.useUnicode" >true</property>
         <property name="hibernate.show_sql" >true</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
     </session-factory>
 </hibernate-configuration>
